@@ -1,0 +1,17 @@
+{
+  "name": "KAERON — Audit et automatisation",
+  "short_name": "KAERON",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#13110f",
+  "theme_color": "#13110f",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
