@@ -72,12 +72,13 @@ em {font-family:'Instrument Serif',Georgia,serif;font-weight:400;letter-spacing:
 .fortress-background[data-motion=playing] .fortress-light {animation-play-state:running}
 .fortress-background[data-motion=reduced] .fortress-light {animation:none;animation-play-state:paused;transform:none;will-change:auto}
 .fortress-haze {position:absolute;inset:0;background:linear-gradient(0deg,rgba(19,17,15,.76),transparent 35%),radial-gradient(ellipse at 50% 42%,#13110f 8%,rgba(19,17,15,.72) 36%,transparent 69%)}
-.hero::before {content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 54%,rgba(19,17,15,.28) 0%,rgba(19,17,15,.15) 30%,transparent 70%)}
+.hero::before {content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 44% 62% at 50% 51%,rgba(19,17,15,.82) 0%,rgba(19,17,15,.72) 42%,rgba(19,17,15,.32) 75%,transparent 100%)}
 .hero :focus-visible {outline-color:#d4a24c}
 .hero::after {content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(212,162,76,.45),transparent);pointer-events:none}
 @keyframes bronze-raking-light {from {transform:translateX(-18px)} to {transform:translateX(18px)}}
 @media(max-width:800px) {
  .hero {min-height:max(620px,80svh);background-image:url('/brand/kaeron-hero-mobile.webp');background-position:center 48%}
+ .hero::before {background:radial-gradient(ellipse 88% 62% at 50% 50%,rgba(19,17,15,.84) 0%,rgba(19,17,15,.72) 42%,rgba(19,17,15,.34) 76%,rgba(19,17,15,.08) 100%)}
  .fortress-desktop {display:none}.fortress-compact {display:block}
  .fortress-haze {background:linear-gradient(0deg,rgba(19,17,15,.85),transparent 50%),radial-gradient(ellipse at 50% 38%,#13110f 12%,rgba(19,17,15,.76) 50%,transparent 90%)}
  .fortress-light {animation-name:bronze-raking-light-compact;opacity:.45;transform:translateX(-3px)}
