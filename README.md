@@ -10,7 +10,7 @@ npm run dev
 npm run build
 ```
 
-Le hero reprend les Light Rays de React Bits (MIT) avec un fond bronze statique pour mouvement réduit et absence de WebGL. Le rendu s'arrête hors écran et lorsque l'onglet est masqué. L'ancien composant forteresse SVG reste dans `src/components/FortressBackground.tsx` pour un éventuel retour arrière.
+Le hero associe une image de forteresse et de loup générée pour KAERON (WebP desktop et mobile, 107 et 99 Ko) aux Light Rays de React Bits (MIT). Les rayons gardent un équivalent statique pour mouvement réduit et absence de WebGL ; le rendu animé s'arrête hors écran et lorsque l'onglet est masqué. L'ancien composant forteresse SVG reste dans `src/components/FortressBackground.tsx` pour un éventuel retour arrière.
 
 La balise de suivi `https://ok-ko.io/tracking-helper.js` est intégrée une seule fois. Son runtime conserve les paramètres d'attribution de session et les ajoute aux liens HTTP(S) et aux iframes. Voir la politique de confidentialité pour les limites documentées.
 
