@@ -25,7 +25,7 @@ function Icon({ name, className = '' }: { name: IconName; className?: string }) 
   return <svg className={`ui-icon ${className}`} aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">{paths[name]}</svg>
 }
 
-function ExternalCTA({ label = 'Demander un audit personnalisé', className = '' }: { label?: string; className?: string }) {
+function ExternalCTA({ label = 'Demander mon audit gratuit', className = '' }: { label?: string; className?: string }) {
   const content = <>{label}<span className="button-orbit"><Arrow diagonal /></span></>
   return formUrl
     ? <a className={`contact-button ${className}`} href={formUrl} target="_blank" rel="noopener noreferrer">{content}<span className="sr-only"> — formulaire externe, nouvel onglet</span></a>
@@ -51,7 +51,7 @@ function Header({ open, setOpen }: { open: boolean; setOpen: (open: boolean) => 
   return <header className="header"><div className="shell header-inner">
     <Wordmark />
     <nav className="desktop-nav" aria-label="Navigation principale"><a href="#parcours">La mise en place</a><a href="#pour-qui">Pour qui ?</a><a href="#faq">Questions</a></nav>
-    <ExternalCTA className="header-cta" label="Demander un audit" />
+    <ExternalCTA className="header-cta" label="Audit gratuit" />
     <button className="menu-toggle" type="button" ref={toggle} aria-controls="mobile-nav" aria-expanded={open} onClick={() => setOpen(!open)}>{open ? 'Fermer' : 'Menu'}<Icon name={open ? 'minus' : 'plus'} /></button>
   </div><nav id="mobile-nav" className="mobile-nav shell" hidden={!open} aria-label="Navigation mobile">
     <a ref={firstLink} href="#parcours" onClick={() => setOpen(false)}>La mise en place <Arrow /></a><a href="#pour-qui" onClick={() => setOpen(false)}>Pour qui ? <Arrow /></a><a href="#faq" onClick={() => setOpen(false)}>Questions <Arrow /></a><ExternalCTA />
@@ -63,19 +63,19 @@ function Hero({ paused }: { paused: boolean }) {
     <LightRaysBackground paused={paused}/>
     <div className="shell hero-content">
       <p className="hero-course">Pour dirigeants de TPE, PME et artisans</p>
-      <h1 id="hero-title">Automatisez le répétitif.<br/><em>Reprenez du temps.</em></h1>
-      <p className="hero-description">Mails, pièces, relances : le suivi manuel grignote vos journées et votre budget. <strong>KAERON audite vos processus, puis installe les automatisations utiles — avec ou sans IA — pour vous rendre du temps et de la tranquillité.</strong></p>
-      <div className="hero-actions"><ExternalCTA/><a className="hero-discover" href="#parcours">Découvrir le service <Icon name="down" /></a></div>
-      <p className="cta-note">Premier échange · Audit proposé ensuite</p>
+      <h1 id="hero-title">Consacrez votre temps<br/>à votre métier.<em>On s’occupe du répétitif.</em></h1>
+      <p className="hero-description">Factures fournisseurs, devis, mails, demandes de visite : l’administratif vous éloigne de vos clients et de votre travail. <strong>KAERON audite votre organisation, puis automatise ce qui peut l’être. Les décisions importantes restent entre vos mains.</strong></p>
+      <div className="hero-actions"><ExternalCTA/><a className="hero-discover" href="#parcours">Découvrir la démarche <Icon name="down" /></a></div>
+      <p className="cta-note">Premier échange et audit personnalisé gratuits</p>
     </div>
   </section>
 }
 
 const phases = [
-  { label: 'Audit personnalisé', title: 'Repérer ce qui vous prend du temps.', text: 'Nous examinons vos tâches, vos logiciels et vos volumes. L’audit distingue les automatismes simples des usages où l’IA est utile, puis classe les chantiers selon vos priorités.', result: 'Un périmètre priorisé et défini par écrit.', type: 'brief' },
-  { label: 'Mise en place', title: 'Installer, tester, puis activer.', text: 'KAERON configure les accès autorisés et les systèmes retenus dans vos outils. Un essai sur vos données vérifie chaque action avant votre accord.', result: 'Des actions testées dans votre environnement.', type: 'practice' },
-  { label: 'Service', title: 'Le travail avance selon vos règles.', text: 'Le système effectue les tâches confiées, signale les éléments manquants et suit les dossiers. Les décisions réservées restent soumises à votre validation.', result: 'Moins de suivi manuel sur le périmètre convenu.', type: 'project' },
-  { label: 'Suivi', title: 'Voir le travail et ajuster.', text: 'KAERON rend compte du travail effectué, entretient les accès et corrige ses défauts. Un point à trois mois permet d’ajuster le service aux besoins observés.', result: 'Un service contrôlé dans la durée.', type: 'review' },
+  { label: 'Audit personnalisé', title: 'Comprendre ce qui vous prend du temps.', text: 'Nous examinons les tâches qui reviennent, vos logiciels et vos volumes. Ensemble, nous retenons ce qui peut être automatisé, avec des règles simples ou l’IA selon le besoin.', result: 'Des priorités et un périmètre définis par écrit.', type: 'brief' },
+  { label: 'Mise en place', title: 'Installer dans vos outils, puis tester.', text: 'KAERON configure les solutions retenues et les validations nécessaires. Vous examinez les résultats des essais avant de donner votre accord pour la mise en service.', result: 'Des tâches testées avant leur activation.', type: 'practice' },
+  { label: 'Au quotidien', title: 'Le répétitif avance selon vos règles.', text: 'Tri, classement, préparation ou suivi : les tâches convenues avancent dans vos outils. Les réponses, les factures et les décisions prévues restent soumises à votre validation.', result: 'Moins de suivi manuel sur le périmètre convenu.', type: 'project' },
+  { label: 'Suivi', title: 'Voir ce qui avance et ajuster.', text: 'KAERON suit les actions réalisées et les points en attente, puis ajuste le service avec vous. Un point à trois mois permet de revoir les besoins de votre activité.', result: 'Un service contrôlé dans la durée.', type: 'review' },
 ]
 
 function PhaseVisual({ type }: { type: string }) {
@@ -87,39 +87,39 @@ function PhaseVisual({ type }: { type: string }) {
 
 function Programme() {
   return <section id="parcours" className="programme section-space"><div className="shell">
-    <div className="section-intro" data-reveal><p className="eyebrow">De l’audit au service</p><h2>L’audit d’abord.<br/><span className="accent-word">Les bons systèmes ensuite.</span></h2><p>Nous partons de votre travail réel et de vos logiciels. <br/>Vous validez les priorités avant toute installation.</p></div>
+    <div className="section-intro" data-reveal><p className="eyebrow">De l’audit à la mise en place</p><h2>Votre quotidien d’abord.<br/><span className="accent-word">Des solutions à votre mesure.</span></h2><p>Nous partons des tâches qui remplissent vos journées et des outils que vous utilisez. <br/>Vous choisissez les priorités et les décisions que vous gardez.</p></div>
     <div className="phase-grid">{phases.map((phase,index)=><article className={`phase-card phase-${phase.type}`} key={phase.type}>
       <PhaseVisual type={phase.type}/><div className="phase-copy"><div className="phase-label"><span>0{index+1}</span>{phase.label}</div><h3>{phase.title}</h3><p>{phase.text}</p><div className="phase-result"><Icon name="diagonal" />{phase.result}</div></div>
     </article>)}</div>
-    <p className="programme-note">Illustrations du fonctionnement. Le périmètre, les logiciels, les décisions, les volumes et les conditions sont convenus avant la mise en service.</p>
+    <p className="programme-note">Illustrations du fonctionnement. Les tâches, les logiciels, les accès, les volumes et les validations sont définis avant la mise en service.</p>
   </div></section>
 }
 
 function LearningExperience() {
   return <section className="experience"><div className="shell experience-panel">
     <div className="experience-copy" data-reveal>
-      <p className="eyebrow">Trois exemples · Du temps repris sur le répétitif</p>
-      <h2>Des tâches qui avancent.<br/><span>Vous gardez la main.</span></h2>
-      <p>Tri des mails, dépôt des pièces, préparation des factures : trois exemples de travail à étudier pendant l’audit. Automatisation classique ou IA, le choix dépend de vos outils, de vos règles et des validations que vous gardez.</p>
-      <div className="experience-tag">Vos outils · Votre accord avant la mise en service</div>
+      <p className="eyebrow">Trois exemples de tâches à étudier</p>
+      <h2>L’administratif avance.<br/><span>Vous gardez la main.</span></h2>
+      <p>Mails à trier, pièces à ranger, factures à préparer : l’audit étudie ces tâches dans vos outils. Une règle simple suffit parfois ; l’IA intervient si elle est utile au travail demandé.</p>
+      <div className="experience-tag">Vos outils · Vos règles · Vos validations</div>
     </div>
     <div className="learning-cards">
       <div className="learning-card" data-reveal>
         <div className="learning-card-top"><span>Les mails</span><strong>Tri <small>IA</small></strong></div>
-        <h3>Trier les mails sans perdre le fil.</h3>
-        <p>Les mails sont triés et les réponses préparées. Vous validez avant l’envoi.</p>
-        <div className="learning-card-bottom"><span>Envoi après validation</span><Arrow diagonal/></div>
+        <h3>Voir les messages qui demandent votre attention.</h3>
+        <p>Les mails peuvent être triés et les réponses préparées selon vos consignes. Vous validez avant l’envoi.</p>
+        <div className="learning-card-bottom"><span>Réponses à valider</span><Arrow diagonal/></div>
       </div>
       <div className="learning-card" data-reveal>
         <div className="learning-card-top"><span>Les justificatifs</span><strong>Dépôt <small>IA</small></strong></div>
         <h3>Retrouver les pièces au bon endroit.</h3>
-        <p>Factures et reçus sont déposés dans votre comptabilité ; leur arrivée est vérifiée.</p>
-        <div className="learning-card-bottom"><span>Arrivée vérifiée</span><Arrow diagonal/></div>
+        <p>Factures et reçus peuvent être classés dans les outils retenus. Les pièces manquantes ou à vérifier sont signalées.</p>
+        <div className="learning-card-bottom"><span>Exceptions signalées</span><Arrow diagonal/></div>
       </div>
       <div className="learning-card" data-reveal>
         <div className="learning-card-top"><span>Vos factures</span><strong>Facturation <small>IA</small></strong></div>
-        <h3>Préparer sans courir après les pièces.</h3>
-        <p>Les éléments du mois sont réunis, les pièces manquantes demandées et les factures présentées pour validation.</p>
+        <h3>Préparer les factures avec les bonnes pièces.</h3>
+        <p>Les éléments nécessaires sont réunis, les pièces manquantes repérées et les factures préparées pour votre validation.</p>
         <div className="learning-card-bottom"><span>Émission après votre accord</span><Arrow diagonal/></div>
       </div>
     </div>
@@ -127,37 +127,37 @@ function LearningExperience() {
 }
 
 const profiles = [
-  { id: '01', title: 'Quand l’administratif remplit la journée.', text: 'Vous dirigez une petite équipe et les mails, pièces et relances reviennent à vous. L’audit repère ce qui peut avancer selon des règles validées.', type: 'Petites entreprises' },
-  { id: '02', title: 'Quand un dossier change trop de mains.', text: 'Vos dossiers passent entre plusieurs personnes. KAERON relie les étapes et signale ce qui attend une validation.', type: 'PME et équipes' },
-  { id: '03', title: 'Quand les papiers suivent le chantier.', text: 'Devis, reçus, factures : l’administratif vous reprend du temps de métier. L’audit cherche ce qui peut être préparé ou suivi automatiquement.', type: 'Artisans et indépendants' },
+  { id: '01', title: 'Quand l’administratif revient toujours à vous.', text: 'Entre clients et équipe, les mails, pièces et relances finissent sur votre bureau. L’audit repère ce qui peut avancer selon vos règles.', type: 'Petites entreprises' },
+  { id: '02', title: 'Quand vos dossiers demandent trop de suivi.', text: 'Devis, documents et validations passent d’une personne à l’autre. KAERON identifie les étapes à relier et les décisions à vous présenter.', type: 'PME et équipes' },
+  { id: '03', title: 'Quand les papiers prolongent la journée.', text: 'Après les visites et les chantiers, restent les devis, reçus et factures. L’audit cherche ce qui peut être préparé ou suivi pour vous laisser plus de temps sur le terrain.', type: 'Artisans et indépendants' },
 ]
 
 function Audience() {
   return <section id="pour-qui" className="audience section-space"><div className="shell">
-    <div className="section-heading" data-reveal><div><p className="eyebrow">Votre quotidien d’abord</p><h2>Quand le répétitif prend<br/>sur votre vrai travail.</h2></div><p>L’audit part de vos interruptions et de vos outils, que vous dirigiez une petite équipe, une PME ou votre activité d’artisan.</p></div>
+    <div className="section-heading" data-reveal><div><p className="eyebrow">Votre métier d’abord</p><h2>Du temps pour ce que<br/>vous faites vraiment.</h2></div><p>TPE, PME ou artisan : nous partons des tâches qui interrompent vos journées et des outils que vous utilisez.</p></div>
     <div className="profiles">{profiles.map(profile => <article className="profile" key={profile.id} data-reveal><div className="profile-top"><span>{profile.type}</span><span className="profile-number">{profile.id}</span></div><h3>{profile.title}</h3><p>{profile.text}</p></article>)}</div>
-    <div className="prerequisites"><div><span className="tiny-label">Un audit à votre mesure</span><h3>Vos outils, vos règles. <br/>Un périmètre adapté.</h3></div><ul><li><Icon name="check" />Les tâches qui reviennent, le temps qu’elles prennent et le résultat que vous attendez.</li><li><Icon name="check" />Vos logiciels et comptes, avec les accès autorisés nécessaires au travail envisagé.</li><li><Icon name="check" />Les décisions que vous gardez : réponses, dépenses ou facturation à valider selon votre activité.</li><li><Icon name="check" />Les volumes, les règles et les données à préciser avant les essais et la mise en service.</li></ul></div>
+    <div className="prerequisites"><div><span className="tiny-label">Un audit à votre mesure</span><h3>Vos outils, vos priorités. <br/>Un périmètre à valider.</h3></div><ul><li><Icon name="check" />Les tâches répétitives et le temps qu’elles vous prennent.</li><li><Icon name="check" />Les logiciels que vous utilisez et les accès nécessaires.</li><li><Icon name="check" />Les décisions et les actions que vous souhaitez valider.</li><li><Icon name="check" />Les volumes, les règles et les résultats attendus.</li></ul></div>
   </div></section>
 }
 
 const questions = [
-  { q: 'Quelles tâches automatiser, avec ou sans IA ?', a: 'Mails, justificatifs d’achat, facturation, relances ou propositions commerciales peuvent être étudiés. Certaines étapes suivent des règles simples ; d’autres peuvent bénéficier de l’IA pour traiter un contenu. L’audit regarde vos outils, vos volumes et les validations nécessaires avant de retenir les tâches adaptées.' },
-  { q: 'Que se passe-t-il pendant l’audit personnalisé ?', a: 'Nous examinons vos processus réels, vos logiciels, vos volumes et les tâches qui vous prennent du temps. Nous distinguons l’automatisation classique des usages où l’IA est utile, puis priorisons les chantiers, les validations et les responsabilités. Une synthèse et une proposition chiffrée précèdent toute installation.' },
-  { q: 'Quel est le tarif de l’audit et de l’installation ?', a: 'L’audit coûte 390 € HT, déduits si la commande suit sous 60 jours après la synthèse. À titre d’exemple, un socle et un processus ciblé représentent 1 800 € HT de mise en place et 420 € HT par mois. Ces prix concernent les logiciels déjà qualifiés, pour le périmètre et les volumes convenus au devis. Suivi, hébergement, entretien et support sont compris ; les licences de vos logiciels restent à votre charge.' },
-  { q: 'Gardons-nous le contrôle des décisions ?', a: 'Oui. Vous fixez ce que KAERON fait seul et ce qui demande votre validation. Une décision porte sur le contenu, la version et les destinataires présentés ; s’ils changent, KAERON redemande. Les droits sont appliqués par personne et par entreprise. Un responsable peut suspendre une responsabilité à tout moment : les nouvelles actions s’arrêtent, les étapes en cours s’interrompent quand c’est sûr. Les actions déjà réalisées restent dans vos logiciels.' },
+  { q: 'Quelles tâches peut-on automatiser ?', a: 'Tri des mails, classement des justificatifs, préparation des factures, devis ou suivi des relances : l’audit étudie ce qui vous prend du temps. Une règle simple suffit pour certaines étapes ; l’IA peut aider à traiter un contenu. Le choix dépend de vos outils, de vos volumes et des validations nécessaires.' },
+  { q: 'Que comprend l’audit personnalisé ?', a: 'Nous examinons votre quotidien, vos logiciels, vos volumes et vos priorités. Nous repérons les tâches à automatiser, avec ou sans IA, et les décisions que vous souhaitez garder. Une synthèse et une proposition chiffrée précèdent toute installation.' },
+  { q: 'L’audit est-il gratuit ? Combien coûte la mise en place ?', a: 'L’audit personnalisé est gratuit. À titre d’exemple, un socle et un processus ciblé représentent 1 800 € HT de mise en place et 420 € HT par mois. Ces prix concernent les logiciels déjà qualifiés, pour le périmètre et les volumes convenus au devis. Suivi, hébergement, entretien et support sont compris ; les licences de vos logiciels restent à votre charge.' },
+  { q: 'Quelles décisions restent entre nos mains ?', a: 'Vous fixez ce qui peut avancer seul et ce qui demande votre accord, par exemple une réponse ou une facture. Vous validez le contenu, sa version et ses destinataires ; si ces éléments changent, KAERON redemande. Un responsable peut suspendre une responsabilité à tout moment : les nouvelles actions s’arrêtent et les étapes en cours s’interrompent quand c’est sûr. Les actions déjà réalisées restent dans vos logiciels.' },
   { q: 'Où vont nos données et nos documents ?', a: 'Les originaux restent dans vos logiciels. KAERON conserve seulement les copies utiles au service pour les durées fixées au contrat. L’hébergement du service et la base sont en Europe, chez des sociétés américaines. Les traitements d’IA passent par OpenRouter puis le fournisseur retenu : leur traitement en Union européenne n’est pas garanti. KAERON n’entraîne aucun modèle avec vos données sans accord écrit. Les échanges Telegram ou WhatsApp ne sont pas chiffrés de bout en bout.' },
-  { q: 'Que se passe-t-il après le premier échange ?', a: 'Nous vérifions si votre besoin entre dans l’offre, quels logiciels sont concernés et quelles décisions vous gardez. Si le besoin convient, l’audit personnalisé prépare les priorités et une proposition chiffrée. Un logiciel encore non qualifié ou un besoin spécifique nécessite une étude bornée et un devis. Vous validez le périmètre, les accès et les essais avant la mise en service ; l’abonnement commence alors.' },
+  { q: 'Que se passe-t-il après ma demande ?', a: 'Un premier échange nous aide à comprendre les tâches qui vous prennent du temps, vos outils et les décisions que vous gardez. Si le besoin entre dans l’offre, l’audit personnalisé définit les priorités et prépare une proposition chiffrée. Un logiciel non qualifié ou un besoin spécifique nécessite une étude bornée et un devis. Vous validez le périmètre, les accès et les essais avant la mise en service ; l’abonnement commence alors.' },
 ]
 
 function FAQ() {
-  return <section id="faq" className="faq section-space"><div className="shell faq-layout"><div className="faq-heading"><p className="eyebrow">Questions fréquentes</p><h2>Vos questions <br/>avant l’audit.</h2><p>Ce qui peut être automatisé, ce que vous validez et ce que cela coûte.</p></div><div className="faq-list">{questions.map((question, index) => <details key={question.q}><summary><span className="faq-index">0{index + 1}</span><span>{question.q}</span><Icon name="plus" className="faq-icon" /></summary><p>{question.a}</p></details>)}</div></div></section>
+  return <section id="faq" className="faq section-space"><div className="shell faq-layout"><div className="faq-heading"><p className="eyebrow">Questions fréquentes</p><h2>Vos questions <br/>avant l’audit.</h2><p>Les tâches possibles, vos validations, les données et les conditions du service.</p></div><div className="faq-list">{questions.map((question, index) => <details key={question.q}><summary><span className="faq-index">0{index + 1}</span><span>{question.q}</span><Icon name="plus" className="faq-icon" /></summary><p>{question.a}</p></details>)}</div></div></section>
 }
 
 function Closing() {
   return <footer id="contact"><div className="shell">
-    <div className="closing" data-reveal><div><p className="eyebrow">Votre prochaine étape</p><h2>Parlons des tâches<br/><em>qui vous prennent du temps.</em></h2><p>Racontez-nous ce qui revient chaque semaine, les outils que vous utilisez et ce qui freine votre équipe. Un premier échange cadre le besoin ; l’audit personnalisé établit ensuite les priorités et le périmètre à valider avant l’installation.</p><ExternalCTA/><p className="cta-note">Premier échange pour cadrer votre besoin avant l’audit.</p>{!formUrl && <p className="preview-notice">Le formulaire externe n’est pas encore connecté dans cet aperçu.</p>}</div><div className="conversation-card"><Icon name="diagonal" className="conversation-sign" /><p>Vos tâches.<br/>Vos priorités.<br/><strong>Votre audit.</strong></p><span>Premier échange · Audit personnalisé</span></div></div>
-    <div className="footer-bottom"><Wordmark/><div className="footer-info"><p>KAERON · Audit et automatisation pour entreprises<br/>Des processus analysés, des systèmes adaptés<br/><span className="footer-ref">Vos outils · Vos décisions</span></p><nav className="footer-legal" aria-label="Informations légales"><a href="/mentions-legales/">Mentions légales</a><a href="/confidentialite/">Confidentialité</a><a href="/cgu/">Conditions d'utilisation</a></nav></div><a className="back-top" href="#top">Retour en haut <Icon name="up" /></a></div>
-    <p className="scope-note">Les processus, les accès, les décisions et les volumes sont définis dans l’audit et la proposition. Les systèmes retenus sont testés avant la mise en service ; leur exploitation et le support suivent les conditions convenues.</p>
+    <div className="closing" data-reveal><div><p className="eyebrow">Votre prochaine étape</p><h2>Et si vous retrouviez<br/><em>du temps pour votre métier ?</em></h2><p>Parlez-nous de votre quotidien, des outils que vous utilisez et des tâches qui reviennent chaque semaine. Un premier échange cadre votre besoin ; l’audit personnalisé définit ensuite les automatisations à envisager et les validations à conserver.</p><ExternalCTA/><p className="cta-note">Premier échange et audit personnalisé gratuits.</p>{!formUrl && <p className="preview-notice">Le formulaire externe n’est pas encore connecté dans cet aperçu.</p>}</div><div className="conversation-card"><Icon name="diagonal" className="conversation-sign" /><p>Vos tâches.<br/>Vos outils.<br/><strong>Votre audit.</strong></p><span>Premier échange · Audit personnalisé</span></div></div>
+    <div className="footer-bottom"><Wordmark/><div className="footer-info"><p>KAERON · Audit personnalisé et automatisation<br/>Des solutions adaptées à votre activité, avec ou sans IA<br/><span className="footer-ref">Vos outils · Vos règles · Vos validations</span></p><nav className="footer-legal" aria-label="Informations légales"><a href="/mentions-legales/">Mentions légales</a><a href="/confidentialite/">Confidentialité</a><a href="/cgu/">Conditions d'utilisation</a></nav></div><a className="back-top" href="#top">Retour en haut <Icon name="up" /></a></div>
+    <p className="scope-note">Le périmètre, les accès, les volumes et les validations sont définis dans l’audit et la proposition. Les automatisations retenues sont testées avant la mise en service ; leur exploitation et le support suivent les conditions convenues.</p>
   </div></footer>
 }
 
