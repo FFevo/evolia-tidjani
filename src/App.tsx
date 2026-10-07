@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { getExternalFormUrl } from './lib/external-form'
 import { LightRaysBackground } from './components/LightRaysBackground'
+import { VslEmbed } from './components/VslEmbed'
 import { usePageMotion } from './hooks/usePageMotion'
 import './App.css'
 
@@ -27,9 +28,7 @@ function Icon({ name, className = '' }: { name: IconName; className?: string }) 
 
 function ExternalCTA({ label = 'Demander mon audit gratuit', className = '' }: { label?: string; className?: string }) {
   const content = <>{label}<span className="button-orbit"><Arrow diagonal /></span></>
-  return formUrl
-    ? <a className={`contact-button ${className}`} href={formUrl} target="_blank" rel="noopener noreferrer">{content}<span className="sr-only"> — formulaire externe, nouvel onglet</span></a>
-    : <button className={`contact-button ${className}`} type="button" disabled title="Le lien du formulaire externe n’a pas encore été fourni.">{content}</button>
+  return <a className={`contact-button ${className}`} href={formUrl} target="_blank" rel="noopener noreferrer">{content}<span className="sr-only"> — formulaire externe, nouvel onglet</span></a>
 }
 
 function Wordmark() {
@@ -65,6 +64,7 @@ function Hero({ paused }: { paused: boolean }) {
       <p className="hero-course">Pour dirigeants de TPE, PME et artisans</p>
       <h1 id="hero-title">Consacrez votre temps<br/>à votre métier.<em>On s’occupe du répétitif.</em></h1>
       <p className="hero-description">Factures fournisseurs, devis, mails, demandes de visite : l’administratif vous éloigne de vos clients et de votre travail. <strong>KAERON audite votre organisation, puis automatise ce qui peut l’être. Les décisions importantes restent entre vos mains.</strong></p>
+      <VslEmbed/>
       <div className="hero-actions"><ExternalCTA/><a className="hero-discover" href="#parcours">Découvrir la démarche <Icon name="down" /></a></div>
       <p className="cta-note">Premier échange et audit personnalisé gratuits</p>
     </div>
@@ -155,7 +155,7 @@ function FAQ() {
 
 function Closing() {
   return <footer id="contact"><div className="shell">
-    <div className="closing" data-reveal><div><p className="eyebrow">Votre prochaine étape</p><h2>Et si vous retrouviez<br/><em>du temps pour votre métier ?</em></h2><p>Parlez-nous de votre quotidien, des outils que vous utilisez et des tâches qui reviennent chaque semaine. Un premier échange cadre votre besoin ; l’audit personnalisé définit ensuite les automatisations à envisager et les validations à conserver.</p><ExternalCTA/><p className="cta-note">Premier échange et audit personnalisé gratuits.</p>{!formUrl && <p className="preview-notice">Le formulaire externe n’est pas encore connecté dans cet aperçu.</p>}</div><div className="conversation-card"><Icon name="diagonal" className="conversation-sign" /><p>Vos tâches.<br/>Vos outils.<br/><strong>Votre audit.</strong></p><span>Premier échange · Audit personnalisé</span></div></div>
+    <div className="closing" data-reveal><div><p className="eyebrow">Votre prochaine étape</p><h2>Et si vous retrouviez<br/><em>du temps pour votre métier ?</em></h2><p>Parlez-nous de votre quotidien, des outils que vous utilisez et des tâches qui reviennent chaque semaine. Un premier échange cadre votre besoin ; l’audit personnalisé définit ensuite les automatisations à envisager et les validations à conserver.</p><ExternalCTA/><p className="cta-note">Premier échange et audit personnalisé gratuits.</p></div><div className="conversation-card"><Icon name="diagonal" className="conversation-sign" /><p>Vos tâches.<br/>Vos outils.<br/><strong>Votre audit.</strong></p><span>Premier échange · Audit personnalisé</span></div></div>
     <div className="footer-bottom"><Wordmark/><div className="footer-info"><p>KAERON · Audit personnalisé et automatisation<br/>Des solutions adaptées à votre activité, avec ou sans IA<br/><span className="footer-ref">Vos outils · Vos règles · Vos validations</span></p><nav className="footer-legal" aria-label="Informations légales"><a href="/mentions-legales/">Mentions légales</a><a href="/confidentialite/">Confidentialité</a><a href="/cgu/">Conditions d'utilisation</a></nav></div><a className="back-top" href="#top">Retour en haut <Icon name="up" /></a></div>
     <p className="scope-note">Le périmètre, les accès, les volumes et les validations sont définis dans l’audit et la proposition. Les automatisations retenues sont testées avant la mise en service ; leur exploitation et le support suivent les conditions convenues.</p>
   </div></footer>
@@ -180,7 +180,7 @@ function StickyContact({ menuOpen }: { menuOpen: boolean }) {
     return () => observer.disconnect()
   }, [])
   if (!visible || menuOpen) return null
-  return <div className="sticky-contact"><ExternalCTA />{!formUrl && <span className="sticky-contact-note">Formulaire en attente de connexion</span>}</div>
+  return <div className="sticky-contact"><ExternalCTA /></div>
 }
 
 export default function App() {

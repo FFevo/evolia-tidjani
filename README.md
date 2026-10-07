@@ -14,4 +14,6 @@ Le hero associe une image de forteresse et de loup générée pour KAERON (WebP 
 
 La balise de suivi `https://ok-ko.io/tracking-helper.js` est intégrée une seule fois. Son runtime conserve les paramètres d'attribution de session et les ajoute aux liens HTTP(S) et aux iframes. Voir la politique de confidentialité pour les limites documentées.
 
-Les CTA nécessitent `VITE_FORM_URL` avec une destination HTTPS approuvée. Faute d'URL fournie, ils restent désactivés ; aucun formulaire n'a été soumis. L'identité juridique et les coordonnées de contact restent à confirmer dans les pages légales.
+Tous les CTA d’audit ouvrent `https://ok-ko.io/go/kaeron`, destination centralisée dans `src/lib/external-form.ts`. La destination ne dépend pas d’une variable d’environnement. Aucun formulaire n’a été soumis lors de la validation.
+
+Les mentions légales, la confidentialité et les CGU identifient KAERON à partir de la fiche officielle de l’Annuaire des entreprises (SIREN 999495674), consultée le 7 octobre 2026. Les pages décrivent le formulaire et le lecteur VSL externes. Aucun courriel ni téléphone n’est publié à la demande du propriétaire ; le formulaire et l’adresse postale sont les points de contact. Les modalités de conservation et de traitement propres aux services tiers restent à confirmer.
